@@ -198,8 +198,8 @@ func ssConnect(rawaddr []byte, bi *BackendInfo) (remote net.Conn, err error) {
 	}
 
 	v := u.Query()
-	v.Set("priority-interface-enabled", strconv.FormatBool(config.Configurations.Generals.PriorityInterfaceEnabled))
-	v.Set("priority-interface-address", config.Configurations.Generals.PriorityInterfaceAddress)
+	v.Set("priority-interface-enabled", "false")
+	v.Set("priority-interface-address", "")
 	v.Set("encrypt-method", bi.encryptMethod)
 	v.Set("encrypt-key", bi.encryptPassword)
 	v.Set("obfs", bi.obfs)
@@ -260,4 +260,8 @@ func (bi *BackendInfo) connect(rawaddr []byte) (remote net.Conn, err error) {
 	}
 
 	return ctr(rawaddr, bi)
+}
+
+func (bi *BackendInfo) Connect(rawaddr []byte) (remote net.Conn, err error) {
+  return bi.connect(rawaddr)
 }
