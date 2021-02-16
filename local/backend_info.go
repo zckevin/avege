@@ -263,5 +263,5 @@ func (bi *BackendInfo) connect(rawaddr []byte) (remote net.Conn, err error) {
 }
 
 func (bi *BackendInfo) Connect(rawaddr []byte) (remote net.Conn, err error) {
-  return bi.connect(rawaddr)
+	return bi.connect(rawaddr)
 }

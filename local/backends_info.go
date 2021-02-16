@@ -279,23 +279,23 @@ func updateExistsOutboundConfig(outboundConfig *outbound.Outbound) bool {
 }
 
 func GetABackend(server_addr, ssr_obfs_type, ssr_protocol, ss_encrypt_method, ss_encrypt_password string) *BackendInfo {
-  backend := &BackendInfo {
-    id: "jp",
-    address: server_addr,
-    protocolType: "shadowsocksr",
-    SSRInfo: SSRInfo{
-      obfs: ssr_obfs_type,
-      obfsParam: "download.windowsupdate.com",
-      protocol: ssr_protocol,
-      protocolParam: "",
-      SSInfo: SSInfo{
-        encryptMethod: ss_encrypt_method,
-        encryptPassword: ss_encrypt_password,
-        tcpFastOpen: false,
-      },
-    },
-  }
-  return backend
+	backend := &BackendInfo{
+		id:           "jp",
+		address:      server_addr,
+		protocolType: "shadowsocksr",
+		SSRInfo: SSRInfo{
+			obfs:          ssr_obfs_type,
+			obfsParam:     "download.windowsupdate.com",
+			protocol:      ssr_protocol,
+			protocolParam: "",
+			SSInfo: SSInfo{
+				encryptMethod:   ss_encrypt_method,
+				encryptPassword: ss_encrypt_password,
+				tcpFastOpen:     false,
+			},
+		},
+	}
+	return backend
 }
 
 func addNewOutboundConfig(outboundConfig *outbound.Outbound) {
